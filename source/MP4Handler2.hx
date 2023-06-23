@@ -15,7 +15,7 @@ class MP4Handler2
 	public var finishCallback:Void->Void;
 	public var stateCallback:FlxState;
 
-	public var bitmap:VlcBitmap;
+	//public var bitmap:VlcBitmap;
 
 	public var sprite:FlxSprite;
 
@@ -35,42 +35,42 @@ class MP4Handler2
 			}
 		}
 
-		bitmap = new VlcBitmap();
+		//bitmap = new VlcBitmap();
 
 		if (FlxG.stage.stageHeight / 9 < FlxG.stage.stageWidth / 16)
 		{
-			bitmap.set_width(FlxG.stage.stageHeight * (16 / 9));
-			bitmap.set_height(FlxG.stage.stageHeight);
+			//bitmap.set_width(FlxG.stage.stageHeight * (16 / 9));
+			//bitmap.set_height(FlxG.stage.stageHeight);
 		}
 		else
 		{
-			bitmap.set_width(FlxG.stage.stageWidth);
-			bitmap.set_height(FlxG.stage.stageWidth / (16 / 9));
+			//bitmap.set_width(FlxG.stage.stageWidth);
+			//bitmap.set_height(FlxG.stage.stageWidth / (16 / 9));
 		}
 
 		
 
-		bitmap.onVideoReady = onVLCVideoReady;
-		bitmap.onComplete = onVLCComplete;
-		bitmap.onError = onVLCError;
+		//bitmap.onVideoReady = onVLCVideoReady;
+		//bitmap.onComplete = onVLCComplete;
+	//	bitmap.onError = onVLCError;
 
 		FlxG.stage.addEventListener(Event.ENTER_FRAME, update);
 
 		if (repeat)
-			bitmap.repeat = -1; 
+		//	bitmap.repeat = -1; 
 		else
-			bitmap.repeat = 0;
+			//bitmap.repeat = 0;
 
-		bitmap.inWindow = isWindow;
-		bitmap.fullscreen = isFullscreen;
+		//bitmap.inWindow = isWindow;
+		//bitmap.fullscreen = isFullscreen;
 
-		FlxG.addChildBelowMouse(bitmap);
-		bitmap.play(checkFile(path));
+		//FlxG.addChildBelowMouse(bitmap);
+		//bitmap.play(checkFile(path));
 
 		if (outputTo != null)
 		{
 			// lol this is bad kek
-			bitmap.alpha = 0;
+			//bitmap.alpha = 0;
 
 			sprite = outputTo;
 		}
@@ -96,7 +96,7 @@ class MP4Handler2
 		trace("video loaded!");
 
 		if (sprite != null)
-			sprite.loadGraphic(bitmap.bitmapData);
+			//sprite.loadGraphic(bitmap.bitmapData);
 	}
 
 	public function onVLCComplete()
@@ -139,9 +139,9 @@ class MP4Handler2
 
 	function update(e:Event)
 	{
-		bitmap.volume = FlxG.sound.volume + 0.3; // shitty volume fix. then make it louder.
+		//bitmap.volume = FlxG.sound.volume + 0.3; // shitty volume fix. then make it louder.
 
 		if (FlxG.sound.volume <= 0.1)
-			bitmap.volume = 0;
+			//bitmap.volume = 0;
 	}
 }

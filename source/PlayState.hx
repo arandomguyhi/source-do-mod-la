@@ -1046,8 +1046,8 @@ class PlayState extends MusicBeatState
 					fallenbg.scale.set(1.5, 1.5);
 					fallenbg.screenCenter();
 				} else {
-					var video:MP4Handler2 = new MP4Handler2();
-					video.playMP42(Paths.video('fallingbg'), null, fallenbg);
+					//var video:MP4Handler2 = new MP4Handler2();
+					//video.playMP42(Paths.video('fallingbg'), null, fallenbg);
 				}
 				
 				add(fallenbg);
@@ -1847,6 +1847,7 @@ class PlayState extends MusicBeatState
 		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'characters/' + name + '.lua';
+		#if desktop
 		if(FileSystem.exists(Paths.modFolders(luaFile))) {
 			luaFile = Paths.modFolders(luaFile);
 			doPush = true;
@@ -1856,6 +1857,7 @@ class PlayState extends MusicBeatState
 				doPush = true;
 			}
 		}
+		#end
 		
 		if(doPush)
 		{
@@ -1956,12 +1958,12 @@ class PlayState extends MusicBeatState
    function startMP4vid(name:String)
    {
 	   
-	   var video:MP4Handler = new MP4Handler();
-	   video.playMP4(Paths.video(name));
-	   video.finishCallback = function()
+	   //var video:MP4Handler = new MP4Handler();
+	   //video.playMP4(Paths.video(name));
+	   /*video.finishCallback = function()
 	   {
 		   LoadingState.loadAndSwitchState(new PlayState());
-	   }
+	   }*/
 	   isCutscene = true;
    }
 
@@ -3557,9 +3559,8 @@ class PlayState extends MusicBeatState
 							blue.offset.set(0,0);
 						});
 
-					// YELLOW
-
-					case 'Yellow Band Sing HIT 1' | '1':
+					// YELLOW vai ter que mudar na json depois por causa desse erro cu
+					case 'Yellow Band Sing HIT 1':
 						yellow.animation.play('hit 1', true);
 						yellow.offset.set(-115,2);
 						new FlxTimer().start(1, function(tmr:FlxTimer) {
@@ -3568,7 +3569,7 @@ class PlayState extends MusicBeatState
 						});
 						trace("it workie");
 
-					case 'Yellow Band Sing HIT 2' | '2':
+					case 'Yellow Band Sing HIT 2':
 						yellow.animation.play('hit 2', true);
 						yellow.offset.set(-3,0);
 						new FlxTimer().start(1, function(tmr:FlxTimer) {
