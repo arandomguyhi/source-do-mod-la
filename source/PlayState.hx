@@ -1885,7 +1885,6 @@ class PlayState extends MusicBeatState
 		if(!foundFile) {
 			fileName = Paths.video(name);
 			if(OpenFlAssets.exists(fileName)) {
-			#end
 				foundFile = true;
 			}
 		}
