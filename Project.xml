@@ -39,15 +39,16 @@
 	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
 
 	<classpath name="source" />
-
+	
+	<assets path="mobile" rename="assets/mobile" if="mobile" />
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
 	
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED" if="desktop" />
-	<define name="LUA_ALLOWED" if="desktop" />
+	<define name="LUA_ALLOWED" if="mobile" />
 	<define name="ACHIEVEMENTS_ALLOWED" />
-	<define name="VIDEOS_ALLOWED" if="web || windows" unless="32bits"/>
+	<define name="VIDEOS_ALLOWED" if="web || mobile" unless="32bits"/>
 
 	<!-- DONT ENABLE THIS -->
 	<define name="CHECK_FOR_UPDATES" if="desktop officialBuild"/>
