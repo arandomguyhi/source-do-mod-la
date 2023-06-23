@@ -53,7 +53,7 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		#if MODS_ALLOWED
+		#if desktop
 		//trace("finding mod shit");
 		for (folder in Paths.getModDirectories())
 		{

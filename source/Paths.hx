@@ -29,7 +29,7 @@ class Paths
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
 	inline public static var VIDEO_EXT = "mp4";
 
-	#if MODS_ALLOWED
+	#if desktop
 	public static var ignoreModFolders:Array<String> = [
 		'characters',
 		'custom_events',
@@ -196,7 +196,7 @@ class Paths
 
 	static public function video(key:String)
 	{
-		#if MODS_ALLOWED
+		#if desktop
 		var file:String = modsVideo(key);
 		if(Util.exists(file)) {
 			return file;
@@ -245,8 +245,8 @@ class Paths
 	
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
-		#if sys
-		#if MODS_ALLOWED
+		#if desktop
+		#if desktop
 		if (!ignoreMods && Util.exists(modFolders(key)))
 			return File.getContent(modFolders(key));
 		#end
@@ -273,7 +273,7 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		#if MODS_ALLOWED
+		#if desktop
 		var file:String = modsFont(key);
 		if(Util.exists(file)) {
 			return file;
@@ -284,7 +284,7 @@ class Paths
 
 	inline static public function fileExists(key:String, type:AssetType, ?ignoreMods:Bool = false, ?library:String)
 	{
-		#if MODS_ALLOWED
+		#if desktop
 		if(Util.exists(mods(currentModDirectory + '/' + key)) || Util.exists(mods(key))) {
 			return true;
 		}
@@ -298,7 +298,7 @@ class Paths
 
 	inline static public function getSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
 	{
-		#if MODS_ALLOWED
+		#if desktop
 		var imageLoaded:FlxGraphic = returnGraphic(key);
 		var xmlExists:Bool = false;
 		if(Util.exists(modsXml(key))) {
@@ -314,7 +314,7 @@ class Paths
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
-		#if MODS_ALLOWED
+		#if desktop
 		var imageLoaded:FlxGraphic = returnGraphic(key);
 		var txtExists:Bool = false;
 		if(Util.exists(modsTxt(key))) {
@@ -334,7 +334,7 @@ class Paths
 	// completely rewritten asset loading? fuck!
 	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
 	public static function returnGraphic(key:String, ?library:String) {
-		#if MODS_ALLOWED
+		#if desktop
 		var modKey:String = modsImages(key);
 		if(Util.exists(modKey)) {
 			if(!currentTrackedAssets.exists(modKey)) {
@@ -365,7 +365,7 @@ class Paths
 
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 	public static function returnSound(path:String, key:String, ?library:String) {
-		#if MODS_ALLOWED
+		#if desktop
 		var file:String = modsSounds(path, key);
 		if(Util.exists(file)) {
 			if(!currentTrackedSounds.exists(file)) {
@@ -380,7 +380,7 @@ class Paths
 		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
 		// trace(gottenPath);
 		if(!currentTrackedSounds.exists(gottenPath))
-		#if MODS_ALLOWED
+		#if desktop
 			currentTrackedSounds.set(gottenPath, Sound.fromFile(gottenPath));
 		#else
 		{
@@ -395,7 +395,7 @@ class Paths
 		return currentTrackedSounds.get(gottenPath);
 	}
 	
-	#if MODS_ALLOWED
+	#if desktop
 	inline static public function mods(key:String = '') {
 		return 'mods/' + key;
 	}

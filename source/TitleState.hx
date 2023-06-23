@@ -113,7 +113,7 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		
-		#if MODS_ALLOWED
+		#if desktop
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		if (Util.exists("modsList.txt")){
 			
@@ -130,7 +130,7 @@ class TitleState extends MusicBeatState
 		}
 		#end
 		
-		#if (desktop && MODS_ALLOWED)
+		#if desktop
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
 		//trace(path, FileSystem.exists(path));
 		if (!Util.exists(path)) {
@@ -305,7 +305,7 @@ class TitleState extends MusicBeatState
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		
 		
-		#if (desktop && MODS_ALLOWED)
+		#if desktop
 		var path = "mods/" + Paths.currentModDirectory + "/images/logoBumpin.png";
 		//trace(path, FileSystem.exists(path));
 		if (!Util.exists(path)){
@@ -333,7 +333,7 @@ class TitleState extends MusicBeatState
 		swagShader = new ColorSwap();
 			gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 		
-		#if (desktop && MODS_ALLOWED)
+		#if desktop
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.png";
 		//trace(path, FileSystem.exists(path));
 		if (!Util.exists(path)){
@@ -358,7 +358,7 @@ class TitleState extends MusicBeatState
 		//logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if (desktop && MODS_ALLOWED)
+		#if desktop
 		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
 		//trace(path, FileSystem.exists(path));
 		if (!Util.exists(path)){
