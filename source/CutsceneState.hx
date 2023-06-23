@@ -15,14 +15,14 @@ class CutsceneState extends MusicBeatState
 
 	public function load()
 	{
-		handler = new MP4Handler();
+		//handler = new MP4Handler();
 	}
 
 	public override function update(elapsed)
 	{
 		if (FlxG.keys.justPressed.ENTER)
 		{
-			handler.kill();
+			//handler.kill();
 			MusicBeatState.switchState(new PlayState());
 		}
 		super.update(elapsed);
@@ -30,7 +30,7 @@ class CutsceneState extends MusicBeatState
 
 	public override function create()
 	{
-		handler.playMP4(Paths.video(path));
+		//handler.playMP4(Paths.video(path));
 		handler.finishCallback = function()
 		{
 			MusicBeatState.switchState(new PlayState());
