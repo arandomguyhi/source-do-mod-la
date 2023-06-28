@@ -56,10 +56,10 @@ class MP4Handler2
 
 		FlxG.stage.addEventListener(Event.ENTER_FRAME, update);
 
-		if (repeat)
-		//	bitmap.repeat = -1; 
+		/*if (repeat)
+			bitmap.repeat = -1; 
 		else
-			//bitmap.repeat = 0;
+			bitmap.repeat = 0;*/
 
 		//bitmap.inWindow = isWindow;
 		//bitmap.fullscreen = isFullscreen;
