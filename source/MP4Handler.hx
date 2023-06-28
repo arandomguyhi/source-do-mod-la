@@ -95,8 +95,8 @@ class MP4Handler
 	{
 		trace("video loaded!");
 
-		if (sprite != null)
-			sprite.loadGraphic(bitmap.bitmapData);
+		/*if (sprite != null)
+			sprite.loadGraphic(bitmap.bitmapData);*/
 	}
 
 	public function onVLCComplete()

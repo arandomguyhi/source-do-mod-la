@@ -1057,7 +1057,7 @@ class FunkinLua {
 			if(!Util.exists(path)) {
 				path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 			}
-			#end
+			
 			luaTrace('Trying to load dialogue: ' + path);
 
 			if(Util.exists(path)) {
@@ -1076,6 +1076,7 @@ class FunkinLua {
 					PlayState.instance.startCountdown();
 				}
 			}
+			#end
 		});
 		Lua_helper.add_callback(lua, "startVideo", function(videoFile:String) {
 			#if VIDEOS_ALLOWED
