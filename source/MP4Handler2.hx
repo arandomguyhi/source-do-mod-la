@@ -141,7 +141,7 @@ class MP4Handler2
 	{
 		//bitmap.volume = FlxG.sound.volume + 0.3; // shitty volume fix. then make it louder.
 
-		if (FlxG.sound.volume <= 0.1)
+		//if (FlxG.sound.volume <= 0.1)
 			//bitmap.volume = 0;
 	}
 }
